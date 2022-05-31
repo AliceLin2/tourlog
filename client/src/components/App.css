@@ -1,0 +1,83 @@
+.App{
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+  background-color: white;
+}
+
+div.title{
+  text-align: center
+}
+
+div.hot-list{
+  position: relative;
+  left: 30%
+}
+
+a.cities{
+  padding:5px;
+}
+
+dl{
+  display : flex;
+  width: 500px
+}
+
+dt{
+  width: 100px
+}
+
+div.city-show{
+  display : flex
+}
+
+div.city-hide{
+  display : none;
+}
+
+div.month-show{
+  display : flex
+}
+
+div.month-hide{
+  display : none;
+}
+
+div.style-show{
+  display : flex
+}
+
+div.style-hide{
+  display : none;
+}
+
+div.month-list{
+  position: relative;
+  left: 30%;
+  padding:20px;
+}
+
+div.style-list{
+  position: relative;
+  left: 25%;
+  padding:20px;
+}
+
+div.home{
+  text-align: center
+}
+
+Input{
+  width: 500px
+}
+
+div.style{
+  display : flex;
+  position: relative;
+}
+
+span{
+  padding:20px;
+}
+
