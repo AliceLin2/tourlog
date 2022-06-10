@@ -43,9 +43,9 @@ function ViewList() {
                     <Grid.Column width={4}>
                         <div className="card">
                             <h3>Popular Views</h3>
-                            <Link to={`/views/${mostPopular[0].id}`}><Image src={mostPopular[0].images[0].url} style={{height:"100px"}}/></Link><br/>
-                            <Link to={`/views/${mostPopular[1].id}`}><Image src={mostPopular[1].images[0].url} style={{height:"100px"}}/></Link><br/>
-                            <Link to={`/views/${mostPopular[2].id}`}><Image src={mostPopular[2].images[0].url} style={{height:"100px"}}/></Link>
+                            <div><Image src={mostPopular[0].images[0].url} style={{height:"100px"}}/></div><br/>
+                            <div><Image src={mostPopular[1].images[0].url} style={{height:"100px"}}/></div><br/>
+                            <div><Image src={mostPopular[2].images[0].url} style={{height:"100px"}}/></div>
                         </div>
                     </Grid.Column>
                 </Grid>
