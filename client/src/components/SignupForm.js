@@ -36,7 +36,7 @@ function SignUpForm(){
         .then(r=>{
             if(r.ok)
                 {r.json().then((user)=>{setUser(user)
-                  navigate("/mylist");
+                  navigate("/");
                   setFormData(defaultForm)
                 })}
             else
