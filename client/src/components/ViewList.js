@@ -49,8 +49,8 @@ function ViewList() {
                         <div className="card">
                             <h3>Popular Views</h3>
                             <div><Image src={mostPopular.length===0?null:mostPopular[0].images[0].url} style={{height:"100px"}}/></div><br/>
-                            <div><Image src={mostPopular.length===1?null:mostPopular[0].images[0].url} style={{height:"100px"}}/></div><br/>
-                            <div><Image src={mostPopular.length===2?null:mostPopular[2].images[0].url} style={{height:"100px"}}/></div>
+                            <div><Image src={mostPopular.length<=1?null:mostPopular[0].images[0].url} style={{height:"100px"}}/></div><br/>
+                            <div><Image src={mostPopular.length<=2?null:mostPopular[2].images[0].url} style={{height:"100px"}}/></div>
                         </div>
                     </Grid.Column>
                 </Grid>
