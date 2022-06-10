@@ -3,13 +3,13 @@ class ViewsController < ApplicationController
     skip_before_action :authorize
 
     def index
-        views = View.all
+        views = View.all.with_attached_images
         render json: views
     end
 
     def show
         view = View.find(params[:id])
-        render json: view
+        render json: view, include: ['comments', 'comment.user']
     end
 
     def create
@@ -37,7 +37,7 @@ class ViewsController < ApplicationController
     private
 
     def view_params
-        params.permit(:ticket, :hour, :overview, :scene, :city_id, :view_image)
+        params.permit(:ticket, :hour, :overview, :scene, :city_id, images:[])
     end
     
     def render_not_found_response

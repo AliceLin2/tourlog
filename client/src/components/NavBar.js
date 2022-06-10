@@ -1,19 +1,28 @@
-import React from "react";
+import React, {useContext} from "react";
 import { NavLink, useNavigate } from "react-router-dom";
-import { Segment } from 'semantic-ui-react'
+import { Segment, Button } from 'semantic-ui-react'
+import background from "../images/Oia.jpeg"
+import {UserContext} from "../context/userContext"
 
-const format = {
-  display: "inline-block",
-  width: "200px",
-  padding: "10px",
-  margin: "0 10px 10px",
-  background: "blue",
-  color: "white",
-  fontSize: "20px"
-};
-
-function NavBar({setUser, user}) {
+function NavBar() {
   const navigate = useNavigate();
+  const {user, setUser} = useContext(UserContext)
+  const userLogin = (user) => {
+      if(user)
+        return user.is_admin
+      else
+        return null}
+
+  const format = ({ isActive }) => ({
+    display: 'inline-block',
+    width: '200px',
+    padding: '10px',
+    margin: '0 10px 10px',
+    fontSize: '20px',
+    borderRadius: '5px',
+    color: isActive ? '#fff' : '#545e6f',
+    background: isActive ? 'orange' : '#f8d9b4',
+  })
 
   function handleLogout(){
     fetch('/logout', {
@@ -27,64 +36,30 @@ function NavBar({setUser, user}) {
     })
   }
   return (
-    <Segment.Group horizontal>
+    <Segment.Group horizontal  style={{backgroundImage: `url(${background})`}}>
         <Segment floated='left'>
-          <h1>Tourlog</h1>
+          <h1 style={{color: "orange"}}>Tourlog</h1>
         </Segment>
         <Segment floated='left'>
-            <NavLink
-                to="/"
-                style={format}
-                activeStyle={{
-                background: "pink",
-                color: "black"
-                }}
-            >
+            <NavLink to="/" style={format}>
                 Home
             </NavLink>
-            <NavLink
-                to="/cities"
-                style={format}
-                activeStyle={{
-                background: "pink",
-                color: "black"
-                }}
-            >
+            <NavLink to="/cities" style={format}>
                 Destination
             </NavLink>
-            <NavLink
-                to="/blogs"
-                style={format}
-                activeStyle={{
-                background: "pink",
-                color: "black"
-                }}
-            >
-                Blogs
+            <NavLink to="/views" style={format}>
+                Views
             </NavLink>
-            <NavLink
-                to="/design"
-                style={format}
-                activeStyle={{
-                background: "pink",
-                color: "black"
-                }}
-            >
-                Design
-            </NavLink>
+            {userLogin(user)?
+                <NavLink to="/design" style={format}>
+                    Design
+                </NavLink>:null}
         </Segment>
         <Segment floated='right'>
-            <NavLink
-                to="/login"
-                style={format}
-                activeStyle={{
-                background: "pink",
-                color: "black"
-                }}
-            >
-                {user?`Hi! ${user.username}`:"Login"}
+            <NavLink to="/login" style={format}>
+                {user?`Hi! ${user.username}`:"Login|Sign up"}
             </NavLink>
-            <button onClick={handleLogout}>Logout</button>
+            <Button onClick={handleLogout} content='Logout'/>
         </Segment>
     </Segment.Group>
   );

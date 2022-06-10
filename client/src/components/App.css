@@ -28,14 +28,6 @@ dt{
   width: 100px
 }
 
-div.city-show{
-  display : flex
-}
-
-div.city-hide{
-  display : none;
-}
-
 div.month-show{
   display : flex
 }
@@ -54,13 +46,13 @@ div.style-hide{
 
 div.month-list{
   position: relative;
-  left: 30%;
+  left: 00%;
   padding:20px;
 }
 
 div.style-list{
   position: relative;
-  left: 25%;
+  left: 0%;
   padding:20px;
 }
 
@@ -81,3 +73,26 @@ span{
   padding:20px;
 }
 
+.leftcolumn {   
+  float: left;
+  width: 75%;
+}
+
+.rightcolumn {
+  float: left;
+  width: 25%;
+  padding-left: 20px;
+}
+  
+.card {
+  padding: 20px;
+}
+
+.rowC {
+  display:flex; 
+  flex-direction:row;
+}
+
+.viewlist{
+  padding:50px;
+}

@@ -5,11 +5,11 @@ import { Image } from 'semantic-ui-react'
 function BestSeason({seasons}){
     function selection(seasons, month){
         let result
-        if(seasons)
-            (result = (seasons.filter(s=>s.id===month)[0].cities.map(c=>{   
+        if(seasons.length>0)
+            (result = (seasons.filter(s=>s.id===month)[0].cities.map(c=>{  
                 return(            
                     <Link key={c.id} to={`/cities/${c.id}`}>
-                        <Image src={c.symbol_image} height="200" weight="200" size='medium' circular />
+                        <Image src={c.views[0].images[0].url} height="200" weight="200" size='large' circular />
                         <div>{c.name}</div>
                     </Link>
                )})))
@@ -28,29 +28,29 @@ function BestSeason({seasons}){
                 <h2>Seasonal Selection</h2>
             </div>
                 <div className="title">
-                    <a name="January" onMouseOver={handleShow} href="javascript:void(0)">January</a>
+                    <a name="January" onMouseOver={handleShow} href="#">January</a>
                     <span>  |  </span>
-                    <a name="February" onMouseOver={handleShow} href="javascript:void(0)">February</a>
+                    <a name="February" onMouseOver={handleShow} href="#">February</a>
                     <span>  |  </span>
-                    <a name="March" onMouseOver={handleShow} href="javascript:void(0)">March</a>
+                    <a name="March" onMouseOver={handleShow} href="#">March</a>
                     <span>  |  </span>
-                    <a name="Apirl" onMouseOver={handleShow} href="javascript:void(0)">Apirl</a>
+                    <a name="Apirl" onMouseOver={handleShow} href="#">Apirl</a>
                     <span>  |  </span>
-                    <a name="May" onMouseOver={handleShow} href="javascript:void(0)">May</a>
+                    <a name="May" onMouseOver={handleShow} href="#">May</a>
                     <span>  |  </span>
-                    <a name="June" onMouseOver={handleShow} href="javascript:void(0)">June</a>
+                    <a name="June" onMouseOver={handleShow} href="#">June</a>
                     <span>  |  </span>
-                    <a name="July" onMouseOver={handleShow} href="javascript:void(0)">July</a>
+                    <a name="July" onMouseOver={handleShow} href="#">July</a>
                     <span>  |  </span>
-                    <a name="August" onMouseOver={handleShow} href="javascript:void(0)">August</a>
+                    <a name="August" onMouseOver={handleShow} href="#">August</a>
                     <span>  |  </span>
-                    <a name="September" onMouseOver={handleShow} href="javascript:void(0)">September</a>
+                    <a name="September" onMouseOver={handleShow} href="#">September</a>
                     <span>  |  </span>
-                    <a name="October" onMouseOver={handleShow} href="javascript:void(0)">October</a>
+                    <a name="October" onMouseOver={handleShow} href="#">October</a>
                     <span>  |  </span>
-                    <a name="November" onMouseOver={handleShow} href="javascript:void(0)">November</a>
+                    <a name="November" onMouseOver={handleShow} href="#">November</a>
                     <span>  |  </span>
-                    <a name="December" onMouseOver={handleShow} href="javascript:void(0)">December</a>
+                    <a name="December" onMouseOver={handleShow} href="#">December</a>
                 </div>
                 <div className="month-list">
                     <div className="month-show" id="January">

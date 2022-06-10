@@ -1,33 +1,29 @@
-import React, {useState} from "react"
+import React, {useState, useContext} from "react"
 import City from "./City"
-import { Grid, Segment, Input } from 'semantic-ui-react'
-import {Link, Route, Routes} from "react-router-dom"
-import { useRoute } from '@react-navigation/native'
-import View from "./View"
+import { Grid, Input } from 'semantic-ui-react'
+import {Link, Route, Routes, useLocation} from "react-router-dom"
+import CityViews from "./CityViews"
+import {CityContext} from "../context/cityContext"
 
-function Destination({cities}){
-    const route = useRoute()
-    console.log(route)
-    function cityArray(){
-        let city
-        if(cities)
-            city =(cities.map(c=>{return(
+function Destination(){
+    const location= useLocation()
+    const {cities} = useContext(CityContext)
+    const [search, setSearch] = useState("");
+    const displayCities = cities.filter((c) => c.name.toLowerCase().includes(search.toLowerCase()))
+
+    const cityArray = displayCities.map(c=>{return(
                 <Link key={c.id} to={`/cities/${c.id}`}>
                     <City class="city" key={c.id} city={c}/>
-                </Link>)}))
-        return city
-    }
+                </Link>)})
 
     return (
-        <Grid columns={4} divided>
-            <Segment>
-                <Input action={{ icon: 'search' }} placeholder='Search the destination...'/>
-            </Segment>
+        <Grid columns={4} divided style={{padding: "50px"}}>
+            {location.pathname.length>8?null:<Input action={{icon: 'search'}} placeholder='Search the destination...' onChange={e=>setSearch(e.target.value)} value={search} style={{left: "30%",width: "800px"}}/>}
             <Grid.Row>
-                {cityArray()}
+                {location.pathname.length>8?null:cityArray}
             </Grid.Row>
             <Routes>
-                <Route path={`:cityId`} element={<View/>} />
+                <Route path={`:cityId`} element={<CityViews/>} />
             </Routes>
         </Grid>
         )

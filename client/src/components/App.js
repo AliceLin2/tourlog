@@ -1,18 +1,26 @@
-import React, {useState, useEffect} from 'react'
+import React, {useEffect, useContext} from 'react'
 import {Route, Routes} from "react-router-dom"
 import NavBar from './NavBar';
 import Destination from './Destination';
 import Home from './Home';
-import SignInForm from './SigninForm';
-import SignUpForm from './SignupForm';
+import LoginPage from './LoginPage';
+import ViewList from './ViewList';
 import Design from './Design';
 import './App.css';
+import useQuery from "../hooks/useQuery";
+import {CommentContext} from "../context/comment"
+import {CityContext} from "../context/cityContext"
+import {ViewContext} from "../context/viewContext"
+import {UserContext} from "../context/userContext"
+
+/*images are from mafengwo.cn; tripadvisor.com and trip.com*/
 
 function App() {
-  const [user, setUser] = useState(null)
-  const [cities, setCities] = useState(null)
-  const [styles, setStyles] = useState(null)
-  const [seasons, setSeasons] = useState(null)
+  const {user, setUser} = useContext(UserContext)
+  const {setCities} = useContext(CityContext)
+  const {setViews} = useContext(ViewContext)
+  const {setComments} = useContext(CommentContext)
+  const {styles, seasons} = useQuery();
 
   useEffect(()=>{
     fetch("/me")
@@ -29,28 +37,28 @@ function App() {
   }, [])
   
   useEffect(()=>{
-    fetch("/styles")
+    fetch("/views")
     .then((r)=>{
-      if(r.ok){r.json().then((styles)=>setStyles(styles))}
+      if(r.ok){r.json().then((views)=>setViews(views))}
     })
   }, [])
 
   useEffect(()=>{
-    fetch("/seasons")
+    fetch("/comments")
     .then((r)=>{
-      if(r.ok){r.json().then((seasons)=>setSeasons(seasons))}
+      if(r.ok){r.json().then((comments)=>setComments(comments))}
     })
   }, [])
 
   return (
-    <div className="App">
+    <div>
         <NavBar/>
         <Routes>
-            <Route path="/cities/*" element={<Destination cities={cities}/>}/>
-            <Route path="/blogs" element={<SignUpForm />}/>
-            <Route path="/design" element={<Design seasons={seasons} styles={styles}/>}/>
-            <Route path="/login" element={user?<h1>Welcome! {user.username}</h1>:<SignInForm />}/>
-            <Route path="/" element={ <Home cities={cities} styles={styles} seasons={seasons}/>}/>
+            <Route path="/cities/*" element={<Destination/>}/>
+            <Route path="/views/*" element={<ViewList/>}/>
+            <Route path="/design" element={<Design/>}/>
+            <Route path="/login" element={user?<h1>Welcome! {user.username}</h1>:<LoginPage/>}/>
+            <Route path="/" element={ <Home styles={styles} seasons={seasons}/>}/>
         </Routes>
     </div>
   );

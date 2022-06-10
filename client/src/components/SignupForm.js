@@ -1,8 +1,10 @@
-import React, {useState} from "react"
+import React, {useState, useContext} from "react"
 import { Form, Checkbox } from 'semantic-ui-react'
 import { useNavigate } from "react-router-dom";
+import {UserContext} from "../context/userContext"
 
-function SignUpForm({onSignIn}){
+function SignUpForm(){
+    const {setUser} = useContext(UserContext)
     const defaultForm = {    
         username:"",
         email:"",
@@ -33,7 +35,7 @@ function SignUpForm({onSignIn}){
         })
         .then(r=>{
             if(r.ok)
-                {r.json().then((user)=>{onSignIn(user)
+                {r.json().then((user)=>{setUser(user)
                   navigate("/mylist");
                   setFormData(defaultForm)
                 })}

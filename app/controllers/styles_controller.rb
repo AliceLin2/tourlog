@@ -8,7 +8,7 @@ class StylesController < ApplicationController
 
     def index
         styles = Style.all
-        render json: styles
+        render json: styles, include: ['cities', 'cities.views']
     end
 
     private

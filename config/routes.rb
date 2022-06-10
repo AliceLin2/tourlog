@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   resources :views
   resources :styles, only: [:create, :index]
   resources :cities, only: [:create, :index, :show]
+  resources :comments, only: [:create, :index, :update, :destroy]
 
   post "/signup", to: "users#create"
   get "/me", to: "users#show"

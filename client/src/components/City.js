@@ -3,22 +3,23 @@ import { Card, Icon, Image } from 'semantic-ui-react'
 
 function City({city}){
   return(
-      <Card>
-        <Image src={city.symbol_image} wrapped ui={false} />
+      <Card style={{ margin: '0.6rem' }}>
+        <Image src={city.views[0].images[0].url} wrapped ui={false} />
         <Card.Content>
           <Card.Header>{city.name}</Card.Header>
           <Card.Meta>
-            <span className='date'>{city.area}</span>
+            <span>{city.country}, {city.area}</span>
           </Card.Meta>
           <Card.Description>
-            famous for a lot of natural wonders like Northern Lights, glaciers, active volcanoes, and geysers
+              <p>Best month to visit {city.name}:</p> 
+              {city.seasons.map(s=><React.Fragment key={s.id}>{s.text} </React.Fragment>)}
+              <p>{city.name} is famous for:</p> 
+              {city.styles.map(s=><React.Fragment key={s.id}>{s.text} </React.Fragment>)}
           </Card.Description>
         </Card.Content>
         <Card.Content extra>
-          <a>
             <Icon name='map' />
-            22 Blogs
-          </a>
+            {city.views.length} Views
         </Card.Content>
       </Card>
 )}

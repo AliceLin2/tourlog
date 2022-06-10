@@ -5,11 +5,11 @@ import {Link} from "react-router-dom"
 function Styles({styles}){
     function selection(styles, index){
         let result
-        if(styles)
+        if(styles.length>0)
             (result = (styles.filter(s=>s.id===index)[0].cities.map(c=>{   
                 return(            
-                    <Link key={c.id} to={`/cities/${c.id}`}>
-                        <Image src={c.symbol_image} height="200" weight="200" size='medium' circular />
+                    <Link key={c.id} to={`/cities/${c.id}`} style={{flexDirection: 'row', flexWrap: 'wrap'}}>
+                        <Image src={c.views[0].images[0].url} height="200" weight="200" size='large' circular />
                         <div>{c.name}</div>
                     </Link>)})))
         return result}
@@ -27,21 +27,21 @@ function Styles({styles}){
                 <h2>Style Selection</h2>
             </div>
             <div className="title">
-                <a name="cultural history" onMouseOver={handleShow} href="javascript:void(0)">cultural history</a>
+                <a name="cultural history" onMouseOver={handleShow} >Cultural History</a>
                 <span>  |  </span>
-                <a name="snow scene" onMouseOver={handleShow} href="javascript:void(0)">snow scene</a>
+                <a name="snow scene" onMouseOver={handleShow} href="#">Snow Scene</a>
                 <span>  |  </span>
-                <a name="starry sky" onMouseOver={handleShow} href="javascript:void(0)">starry sky</a>
+                <a name="starry sky" onMouseOver={handleShow} href="#">Starry Sky</a>
                 <span>  |  </span>
-                <a name="sea of flowers" onMouseOver={handleShow} href="javascript:void(0)">sea of flowers</a>
+                <a name="sea of flowers" onMouseOver={handleShow} href="#">Sea of Flowers</a>
                 <span>  |  </span>
-                <a name="mountain" onMouseOver={handleShow} href="javascript:void(0)">mountain</a>
+                <a name="mountain" onMouseOver={handleShow} href="#">Mountain</a>
                 <span>  |  </span>
-                <a name="aurora" onMouseOver={handleShow} href="javascript:void(0)">aurora</a>
+                <a name="aurora" onMouseOver={handleShow} href="#">Aurora</a>
                 <span>  |  </span>
-                <a name="beach" onMouseOver={handleShow} href="javascript:void(0)">beach</a>
+                <a name="beach" onMouseOver={handleShow} href="#">Beach</a>
                 <span>  |  </span>
-                <a name="prairies" onMouseOver={handleShow} href="javascript:void(0)">prairies</a>
+                <a name="prairies" onMouseOver={handleShow} href="#">Prairies</a>
             </div>
             <div className="style-list">
                 <div className="style-show" id="cultural history">

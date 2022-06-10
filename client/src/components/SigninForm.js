@@ -1,25 +1,13 @@
-import React, {useState} from "react"
+import React, {useState, useContext} from "react"
 import { useNavigate } from "react-router-dom";
 import { Form } from 'semantic-ui-react'
-import background from "../images/flower.jpeg"
+import {UserContext} from "../context/userContext"
 
-const style = {
-  display: "inline-block",
-  width: "300px",
-  padding: "20px",
-  margin: "0 10px 10px",
-  background: `url(${background})`,
-  color: "white",
-  fontSize: "20px",
-  position: 'absolute',
-  left: "40%",
-  top: "20%"
-};
-
-function SignInForm({onSignIn}){
+function SignInForm(){
     const navigate = useNavigate();
+    const {setUser} = useContext(UserContext)
     const defaultForm = {    
-        username:"",
+        email:"",
         password:""
       }
     const [formData, setFormData]=useState(defaultForm)
@@ -32,7 +20,7 @@ function SignInForm({onSignIn}){
           [key]:e.target.value
         })
     }
-  
+
     function handleSubmit(e){
         e.preventDefault()
         fetch('/login',{
@@ -45,7 +33,7 @@ function SignInForm({onSignIn}){
         .then(r=>{
             if(r.ok)
                 {r.json().then((user)=>{
-                  onSignIn(user)
+                  setUser(user)
                   navigate("/");
                   setFormData(defaultForm)
                 })}
@@ -56,9 +44,9 @@ function SignInForm({onSignIn}){
   
     return (
       <div>
-        <Form className="Login" onSubmit={handleSubmit} style={style}>
+        <Form className="Login" onSubmit={handleSubmit}>
             <h3>Log in to your account</h3>
-            <Form.Input placeholder="Username" type="text" name="username" value={formData.username} onChange={handleChange}/>
+            <Form.Input placeholder="Email" type="text" name="email" value={formData.email} onChange={handleChange}/>
             <Form.Input placeholder="Password" type="text" name="password" value={formData.password} onChange={handleChange}/>
             <Form.Button content="Submit"/>
         </Form>

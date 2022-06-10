@@ -6,7 +6,4 @@ class City < ApplicationRecord
     has_many :style_cities, dependent: :destroy
     has_many :styles, through: :style_cities
 
-    has_one_attached :symbol_image  do |attachable|
-        attachable.variant :thumb, resize_to_limit: [100, 200]
-    end
 end

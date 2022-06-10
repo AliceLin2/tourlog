@@ -1,23 +1,39 @@
-import React from "react"
-import { Image, Item } from 'semantic-ui-react'
+import React, {useContext} from "react"
+import { useParams } from 'react-router-dom'
+import { Image, Item, Grid} from 'semantic-ui-react'
+import ViewComment from "./ViewComment"
+import {ViewContext} from "../context/viewContext"
 
-function View({}){
+function View(){
+    let id = useParams()
+    const {views} = useContext(ViewContext)
+
+    const view = views.filter(v=>v.id===parseInt(id.viewId))
+    const viewComponent = view.map(v=>{
+                return(
+                    <Item key={v.id}>
+                        <Item.Content>
+                            <h1>{v.scene}</h1>
+                            <Item.Meta>
+                                <div className='rowC'>
+                                    {v.images.map(i=><Image style={{marginRight: '1.2em', marginBottom: '1.2em', width: '600px', height: '400px'}} src={i.url} key={i.id}/>)}
+                                </div>
+                                <p>Overview: {v.overview} </p>
+                                <p>Ticket: {v.ticket}</p>
+                                <p>Hour: {v.hour}</p>
+                            </Item.Meta>
+                        </Item.Content>
+                    </Item>)})
 
     return (
-        <Item.Group>
-            <Item>
-                <Item.Image size='tiny' src='https://react.semantic-ui.com/images/wireframe/image.png' />
-            
-                <Item.Content>
-                    <Item.Header as='a'>Header</Item.Header>
-                    <Item.Meta>Description</Item.Meta>
-                    <Item.Description>
-                    <Image src='https://react.semantic-ui.com/images/wireframe/short-paragraph.png' />
-                    </Item.Description>
-                    <Item.Extra>Additional Details</Item.Extra>
-                </Item.Content>
-            </Item>
-        </Item.Group>
+        <Grid>
+            <Grid.Row>
+                {viewComponent}
+            </Grid.Row>
+            <Grid.Row>
+                <ViewComment view={view}/>
+            </Grid.Row>
+        </Grid>
     )
 }
 

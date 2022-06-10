@@ -3,6 +3,6 @@ class SeasonsController < ApplicationController
 
     def index
         seasons = Season.all
-        render json: seasons
+        render json: seasons, include: ['cities', 'cities.views']
     end
 end

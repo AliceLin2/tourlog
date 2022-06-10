@@ -20,7 +20,7 @@ class CitiesController < ApplicationController
     private
 
     def city_params
-        params.permit(:name, :country, :area, :symbol_image)
+        params.permit(:name, :country, :area)
     end
    
     def render_not_found_response

@@ -11,7 +11,7 @@ function Home({styles, seasons}){
                 <BestSeason seasons={seasons}/>
             </Segment>
             <Segment>
-                <Styles styles={styles} />
+                <Styles styles={styles}/>
             </Segment>
         </div>
         )
