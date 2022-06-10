@@ -9,7 +9,7 @@ function ViewList() {
     const [search, setSearch] = useState("");
     const {views} = useContext(ViewContext)
     const mostPopular = [...views].sort((a,b)=>-a.comments.length+b.comments.length)
-
+    console.log(mostPopular.length<=1)
     const viewCard = ()=>{
         if(views.length===0)
             return null
@@ -49,7 +49,7 @@ function ViewList() {
                         <div className="card">
                             <h3>Popular Views</h3>
                             <div><Image src={mostPopular.length===0?null:mostPopular[0].images[0].url} style={{height:"100px"}}/></div><br/>
-                            <div><Image src={mostPopular.length<=1?null:mostPopular[0].images[0].url} style={{height:"100px"}}/></div><br/>
+                            <div><Image src={mostPopular.length<=1?null:mostPopular[1].images[0].url} style={{height:"100px"}}/></div><br/>
                             <div><Image src={mostPopular.length<=2?null:mostPopular[2].images[0].url} style={{height:"100px"}}/></div>
                         </div>
                     </Grid.Column>
