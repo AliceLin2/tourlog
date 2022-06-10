@@ -1,6 +1,6 @@
-import React, {useState} from "react"
+import React, {useState, createContext} from "react"
 
-const CityContext = React.createContext()
+const CityContext = createContext()
 
 function CityProvider({children}){
     const [cities, setCities] = useState([])

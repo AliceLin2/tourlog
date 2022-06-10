@@ -9,7 +9,7 @@ function ViewList() {
     const [search, setSearch] = useState("");
     const {views} = useContext(ViewContext)
     const mostPopular = [...views].sort((a,b)=>-a.comments.length+b.comments.length)
-    console.log(mostPopular.length<=1)
+
     const viewCard = ()=>{
         if(views.length===0)
             return null
