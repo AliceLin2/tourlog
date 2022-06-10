@@ -6,13 +6,16 @@ function BestSeason({seasons}){
     function selection(seasons, month){
         let result
         if(seasons.length>0)
-            (result = (seasons.filter(s=>s.id===month)[0].cities.map(c=>{  
-                return(            
-                    <Link key={c.id} to={`/cities/${c.id}`}>
-                        <Image src={c.views[0].images[0].url} height="200" weight="200" size='large' circular />
-                        <div>{c.name}</div>
-                    </Link>
-               )})))
+            (result = (seasons.filter(s=>s.id===month)[0].cities.map(c=>{
+                if(c.views.length===0)
+                return null
+                else  
+                    return(            
+                        <Link key={c.id} to={`/cities/${c.id}`}>
+                            <Image src={c.views[0].images[0].url} height="200" weight="200" size='large' circular />
+                            <div>{c.name}</div>
+                        </Link>
+                )})))
         return result}
 
     function handleShow(e){
