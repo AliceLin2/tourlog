@@ -6,12 +6,15 @@ function Styles({styles}){
     function selection(styles, index){
         let result
         if(styles.length>0)
-            (result = (styles.filter(s=>s.id===index)[0].cities.map(c=>{   
-                return(            
-                    <Link key={c.id} to={`/cities/${c.id}`} style={{flexDirection: 'row', flexWrap: 'wrap'}}>
-                        <Image src={c.views[0].images[0].url} height="200" weight="200" size='large' circular />
-                        <div>{c.name}</div>
-                    </Link>)})))
+            (result = (styles.filter(s=>s.id===index)[0].cities.map(c=>{
+                if(c.views.length===0) 
+                    return null
+                else  
+                    return(            
+                        <Link key={c.id} to={`/cities/${c.id}`} style={{flexDirection: 'row', flexWrap: 'wrap'}}>
+                            <Image src={c.views[0].images[0].url} height="200" weight="200" size='large' circular />
+                            <div>{c.name}</div>
+                        </Link>)})))
         return result}
 
     function handleShow(e){
