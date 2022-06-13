@@ -33,7 +33,7 @@ function ViewList() {
 
     return (
         <div className='viewlist'>
-            {location.pathname.length>8?null:
+            {location.pathname.length>7?null:
                 <Grid>
                     <Input 
                         action={{icon: 'search'}} 

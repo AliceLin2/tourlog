@@ -13,7 +13,6 @@ function Home({styles, seasons}){
             <Segment>
                 <Styles styles={styles}/>
             </Segment>
-            <Image src="https://tourlog.s3.amazonaws.com/Dun+Huang.jpeg"/>
         </div>
         )
 }
