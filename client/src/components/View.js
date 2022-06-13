@@ -8,7 +8,6 @@ function View(){
     let id = useParams()
     const {views} = useContext(ViewContext)
     const view = views.filter(v=>v.id===parseInt(id.viewId))
-    console.log(view[0])
 
     const viewComponent = view.map(v=>{
                 return(
