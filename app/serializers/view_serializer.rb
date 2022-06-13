@@ -15,7 +15,7 @@ class ViewSerializer < ActiveModel::Serializer
   end
 
   def image_url(image)
-    url_for(image)
+    rails_blob_url(image)
   end
 
 end

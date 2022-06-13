@@ -1,7 +1,7 @@
 import React from "react"
 import BestSeason from "./BestSeason"
 import Styles from "./Styles"
-import { Segment, Image} from 'semantic-ui-react'
+import { Segment } from 'semantic-ui-react'
 
 function Home({styles, seasons}){
 

@@ -34,8 +34,9 @@ function Design(){
           body:formData
         })
         .then(r=>r.json())
-        .then(()=>{
-          console.log('hello')
+        .then((data)=>{
+          console.log(data)
+          
         })
         .catch(e=>alert.show(e))
     }
