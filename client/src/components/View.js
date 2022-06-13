@@ -7,8 +7,9 @@ import {ViewContext} from "../context/viewContext"
 function View(){
     let id = useParams()
     const {views} = useContext(ViewContext)
-
+    
     const view = views.filter(v=>v.id===parseInt(id.viewId))
+    console.log(view[0].images[0].url)
     const viewComponent = view.map(v=>{
                 return(
                     <Item key={v.id}>
