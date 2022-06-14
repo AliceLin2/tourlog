@@ -17,7 +17,7 @@ function CityViews(){
                     <Link className="card" key={v.id} to={`/views/${v.id}`}>
                          <Item>
                                 <Item.Content>
-                                    <Item.Header as='a'>{v.scene}</Item.Header>
+                                    <Item.Header style={{fontSize: '30px'}}>{v.scene}</Item.Header>
                                     <br></br>
                                     <Item.Description>
                                         <div className='rowC'>
