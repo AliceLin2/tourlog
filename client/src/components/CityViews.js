@@ -17,7 +17,7 @@ function CityViews(){
                     <Link className="card" key={v.id} to={`/views/${v.id}`}>
                          <Item>
                                 <Item.Content>
-                                    <Item.Header style={{fontSize: '50px', marginBottom: '1.2em'}}>{v.scene}</Item.Header>
+                                    <Item.Header style={{fontSize: '30px', marginBottom: '1.2em'}}>{v.scene}</Item.Header>
                                     <Item.Description>
                                         <div className='rowC'>
                                             {v.images.map(i=><Image style={{marginRight: '1.2em', marginBottom: '1.2em', width: '400px', height: '300px'}} src={i.url} key={i.id}/>)}
