@@ -12,6 +12,7 @@
   },
   "dependencies": {
     "@react-navigation/native": "^6.0.10",
-    "client": "^0.0.1"
+    "client": "^0.0.1",
+    "react-scripts": "^5.0.1"
   }
 }
