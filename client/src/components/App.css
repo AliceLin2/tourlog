@@ -1,98 +1,98 @@
 .App{
-  text-align: left;
-  display: flex;
-  flex-direction: column;
-  align-items: left;
-  background-color: white;
-}
-
-div.title{
-  text-align: center
-}
-
-div.hot-list{
-  position: relative;
-  left: 30%
-}
-
-a.cities{
-  padding:5px;
-}
-
-dl{
-  display : flex;
-  width: 500px
-}
-
-dt{
-  width: 100px
-}
-
-div.month-show{
-  display : flex
-}
-
-div.month-hide{
-  display : none;
-}
-
-div.style-show{
-  display : flex
-}
-
-div.style-hide{
-  display : none;
-}
-
-div.month-list{
-  position: relative;
-  left: 00%;
-  padding:20px;
-}
-
-div.style-list{
-  position: relative;
-  left: 0%;
-  padding:20px;
-}
-
-div.home{
-  text-align: center
-}
-
-Input{
-  width: 500px
-}
-
-div.style{
-  display : flex;
-  position: relative;
-}
-
-span{
-  padding:20px;
-}
-
-.leftcolumn {   
-  float: left;
-  width: 75%;
-}
-
-.rightcolumn {
-  float: left;
-  width: 25%;
-  padding-left: 20px;
-}
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    background-color: white;
+  }
   
-.card {
-  padding: 20px;
-}
-
-.rowC {
-  display:flex; 
-  flex-direction:row;
-}
-
-.viewlist{
-  padding:50px;
-}
+  div.title{
+    text-align: center
+  }
+  
+  div.hot-list{
+    position: relative;
+    left: 30%
+  }
+  
+  a.cities{
+    padding:5px;
+  }
+  
+  dl{
+    display : flex;
+    width: 500px
+  }
+  
+  dt{
+    width: 100px
+  }
+  
+  div.month-show{
+    display : flex
+  }
+  
+  div.month-hide{
+    display : none;
+  }
+  
+  div.style-show{
+    display : flex
+  }
+  
+  div.style-hide{
+    display : none;
+  }
+  
+  div.month-list{
+    position: relative;
+    left: 00%;
+    padding:20px;
+  }
+  
+  div.style-list{
+    position: relative;
+    left: 0%;
+    padding:20px;
+  }
+  
+  div.home{
+    text-align: center
+  }
+  
+  Input{
+    width: 500px
+  }
+  
+  div.style{
+    display : flex;
+    position: relative;
+  }
+  
+  span{
+    padding:20px;
+  }
+  
+  .leftcolumn {   
+    float: left;
+    width: 75%;
+  }
+  
+  .rightcolumn {
+    float: left;
+    width: 25%;
+    padding-left: 20px;
+  }
+    
+  .card {
+    padding: 20px;
+  }
+  
+  .rowC {
+    display:flex; 
+    flex-direction:row;
+  }
+  
+  .viewlist{
+    padding:50px;
+  }
