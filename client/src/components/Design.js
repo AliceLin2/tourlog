@@ -1,10 +1,8 @@
 import React, {useState, useContext} from "react"
 import { Form, Dropdown} from 'semantic-ui-react'
-import { useAlert } from 'react-alert'
 import {CityContext} from "../context/cityContext"
 
 function Design(){
-    const alert = useAlert()
     const {cities} = useContext(CityContext)
     let options = []
     const temp = cities? cities.forEach(city=>options.push({id: city.id, key: city.name, text: city.name, value: city.name})): null
@@ -37,7 +35,7 @@ function Design(){
         .then(()=>{
           window.location.reload()
         })
-        .catch(e=>alert.show(e))
+        .catch(e=>console.log(e))
     }
   
     return (

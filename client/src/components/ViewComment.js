@@ -1,12 +1,10 @@
 import React, {useState, useContext} from 'react'
 import { Button, Comment, Form, Header } from 'semantic-ui-react'
-import { useAlert } from 'react-alert'
 import {CommentContext} from "../context/comment"
 import {UserContext} from "../context/userContext"
 import CommentComp from './CommentComp'
 
 function ViewComment({view}){
-    const alert = useAlert()
     const [newComment, setNewComment] = useState('')
     const {comments, setComments} = useContext(CommentContext)
     const commentList = comments.filter(c=>c.view_id===view[0].id)
@@ -31,7 +29,7 @@ function ViewComment({view}){
               setNewComment("")
             })))
           else(
-            alert.show("Please log in to submit your comments!")
+            console.log("Please log in to submit your comments!")
           )
     }
 
