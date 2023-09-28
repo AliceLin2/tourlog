@@ -14,6 +14,6 @@ Usage
 
     5. Users are able to update or delete the comments they left on any scenes before.
 
-    Deployed application URL: https://tourlog2.onrender.com/
+    Deployed application URL: https://tourlog.onrender.com/
 
     Source of information: http://www.mafengwo.cn/, https://www.tripadvisor.com/, https://us.trip.com/?locale=en_us
