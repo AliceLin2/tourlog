@@ -9,7 +9,7 @@ function NavBar() {
   const {user, setUser} = useContext(UserContext)
   const userLogin = (user) => {
       if(user)
-        return user.is_admin
+        return true
       else
         return null}
 
