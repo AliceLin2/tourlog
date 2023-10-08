@@ -23,7 +23,7 @@ function Destination(){
                 {location.pathname.length>8?null:cityArray}
             </Grid.Row>
             <Routes>
-                <Route path={`:cityId`} element={<CityViews/>} />
+                <Route path={`:cityId/*`} element={<CityViews/>} />
             </Routes>
         </Grid>
         )
