@@ -8,7 +8,7 @@ function BestSeason({seasons}){
         if(seasons.length>0)
             (result = (seasons.filter(s=>s.id===month)[0].cities.map(c=>{
                 if(c.views.length===0)
-                return null
+                    return null
                 else  
                     return(            
                         <Link key={c.id} to={`/cities/${c.id}`}>

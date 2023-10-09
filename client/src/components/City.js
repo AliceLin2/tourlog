@@ -2,6 +2,7 @@ import React from 'react'
 import { Card, Icon, Image } from 'semantic-ui-react'
 
 function City({city}){
+  console.log(city.seasons)
   return(
       <Card style={{ margin: '0.6rem' }}>
         {city.views.length===0?null:<Image src={city.views[0].images[0].url} wrapped ui={false}/>}

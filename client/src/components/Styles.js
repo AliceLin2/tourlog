@@ -9,7 +9,7 @@ function Styles({styles}){
             (result = (styles.filter(s=>s.id===index)[0].cities.map(c=>{
                 if(c.views.length===0) 
                     return null
-                else  
+                else 
                     return(            
                         <Link key={c.id} to={`/cities/${c.id}`} style={{flexDirection: 'row', flexWrap: 'wrap'}}>
                             <Image src={c.views[0].images[0].url} height="200" weight="200" size='large' circular />
@@ -30,7 +30,7 @@ function Styles({styles}){
                 <h2>Style Selection</h2>
             </div>
             <div className="title">
-                <a name="cultural history" onMouseOver={handleShow} >Cultural History</a>
+                <a name="cultural history" onMouseOver={handleShow} href="#">Cultural History</a>
                 <span>  |  </span>
                 <a name="snow scene" onMouseOver={handleShow} href="#">Snow Scene</a>
                 <span>  |  </span>
